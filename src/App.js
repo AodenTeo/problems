@@ -80,14 +80,23 @@ class App extends Component {
     }).then(JSONresponse => {
       console.log(JSONresponse);
       let questions = {
-        content: JSONresponse, styles: {
+        content: JSONresponse.problems, styles: {
           header: {
             fontSize: 22,
             bold: true
           }
         }
       };
-      pdfMake.createPdf(questions).download();
+      pdfMake.createPdf(questions).download('Questions');
+      let solutions = {
+        content: JSONresponse.solutions, styles: {
+          header: {
+            fontSize: 22,
+            bold: true
+          }
+        }
+      };
+      pdfMake.createPdf(solutions).download('Solutions');
     }).catch(err => {
       console.log('Oh no!');
     })
