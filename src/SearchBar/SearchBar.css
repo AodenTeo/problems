@@ -1,0 +1,115 @@
+.SearchBar {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    float: center;
+
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10.94rem;
+    margin-bottom: 3.33rem;
+    margin-left: 30%;
+  }
+  
+  .SearchBar input {
+    width: 287px;
+    padding: .77rem 0;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-bottom: 2.22rem;
+    color: #010c3f;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .SearchBar input:focus {
+    outline: none;
+  }
+  
+  .SearchBar a {
+    cursor: pointer;
+    width: 8.11rem;
+    padding: .77rem 0;
+    border-radius: 54px;
+    background-color: #010c3f;
+    text-align: center;
+    font-size: .833rem;
+    transition: background-color .25s;
+    color: white;
+    margin-left:75%;
+  }
+  
+  .SearchBar a:hover {
+    background-color: rgba(108, 65, 233, .7);
+  }
+  select {
+    opacity: 0.6;
+    width: 287px;
+    border: 1px solid #fff;
+    margin-left: 3rem;
+    margin-top: 1.11rem;
+    margin-bottom: 1.11rem;
+    color: #010c3f;
+    text-align: center;
+    font-size: 1rem;
+  }
+ 
+  
+  .SearchBar select:focus {
+    outline: none;
+  }
+/* -------------------- Page Styles (not required) */
+
+
+/* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+/* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+.styled-select {
+  width: 287px;
+    padding: 0 0;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-bottom: 2.22rem;
+    color: #010c3f;
+    text-align: center;
+    font-size: 1rem;
+
+}
+option {
+  text-align: center;
+  font-size:1rem;
+  float: center;
+}
+.center {
+  text-align: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+/* -------------------- Rounded Corners */
+
+
+
+
+/* -------------------- Colors: Background */
+
+.green   { background-color:white; }
+
+
+/* -------------------- Colors: Text */
+
+.green select   { color: black; }
+
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+

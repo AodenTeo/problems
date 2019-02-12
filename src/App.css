@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  height: 100%;
+
+}
+#button {
+  cursor: pointer;
+  width: 8.11rem;
+  padding: .77rem 5rem;
+  border-radius: 54px;
+  background-color: #010c3f;
+  text-align: center;
+  font-size: .833rem;
+  transition: background-color .25s;
+  color: white;
+  position: relative;
+  top: -15vh;
+}
+#button:hover {
+  background-color: rgba(108, 65, 233, .7);
+}

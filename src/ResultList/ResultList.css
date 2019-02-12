@@ -1,0 +1,18 @@
+.results {
+    background-color: rgba(0,0,0,.5);;
+    opacity: 1.0;
+    height: 60%;
+    width: 50%;
+    display: inline-block;
+    overflow: scroll;
+}
+.resultText {
+    opacity: 1.0;
+}
+
+.container {
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
