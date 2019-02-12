@@ -7,6 +7,16 @@ console.log(swimmingCreature.length);
 function rand(number) {
   return Math.floor(Math.random() * number + 1);
 }
+function sin(degrees) {
+  return Math.sin((degrees/360)*2*Math.PI);
+}
+function cos(degrees) {
+  return Math.cos((degrees/360)*2*Math.PI);
+}
+function tan(degrees) {
+  return Math.tan((degrees/360)*2*Math.PI);
+}
+
 function sharkQuestion() {
   let x;
   let firstName;
@@ -82,7 +92,10 @@ function pythag() {
   console.log(b);
   let c = m * m + n * n;
   let diff = a - b > 0 ? a - b : b - a;
+  let answer = a - b > 0 ? a : b; 
   let string = `One leg of a right triangle is ${diff}cm more than the other. If the hypotenuse is ${c}cm, create and solve an equation and find the length of the legs.`;
+  let answerString = `Let the shorter leg of the right triangle be x. Then, we have the equation x^2 + (x+${diff})^2 = ${c}. Solving this equation using the quadratic formula gives us x = ${answer}.`;
+  console.log(answerString);
   console.log(string);
   return string;
 }
@@ -99,13 +112,18 @@ function triangleRangeQuestion() {
   console.log(c);
   let triangly = Math.random() > 0.5 ? 'obtuse' : 'acute';
   let string = `Let ABC be a triangle such with AB=${a}cm and BC=${b}cm. Let AC be opposite the largest angle in the triangle. Assume that ABC is ${triangly}. Find the range of possible values of AC.`;
+  let answerString;
   console.log(string);
+  let secondLongestSide = a > b ? a : b;
   if (triangly === 'obtuse') {
+    answerString = `Using the law of cosines and the triangle inequality, we determine that a triangle is obtuse if and only if its longest side is greater that the sum of the squares of the other two sides. As such we obtain ${c} < AC < ${a + b}`
     console.log(`${c} < AC < ${a + b}`)
   } else {
-    let secondLongestSide = a > b ? a : b;
+    answerString = `Using the law of cosines, we determine that a triangle is acute if and only if its longest side is greater that the sum of the squares of the other two sides. As such we obtain ${secondLongestSide} < AC < ${c}`;
+    
     console.log(`${secondLongestSide} < AC < ${c}`);
   }
+  console.log(answerString);
   return string;
 }
 function trapezoidQuestion() {
@@ -121,18 +139,22 @@ function trapezoidQuestion() {
   let angle = rand(89);
   let AB = a > b ? a : b;
   let AD = a < b ? a : b;
-  let string = `Let ABCD be an issoceles trapezoid, with base AB=${AB} and AD=CB=${AD}. Let angle ACB=${angle} degrees. Find the length of the diagonal AC and the height of the trapezoid.`;
+  let string = `Let ABCD be an issoceles trapezoid, with base AB=${AB} and AD=CB=${AD}. Let angle ACB=${angle} degrees. Find the length of the diagonal AC.`;
   console.log(string);
   let answer = (Math.sqrt(c * c - 2 * a * b * Math.cos(((angle) / 360) * 2 * Math.PI))).toFixed(3);
   console.log(answer);
+  let answerString = `To find diagonal AC, we simply apply the law of cosines to triangle ACB. Thus, we obtain that AC = sqrt(AB^2 + BC^2 - 2*AB*BC*cos ACB) = ${answer}`;
+  console.log(answerString);
   return string;
 }
 function mountain() {
   let height = rand(1000);
   let depression = rand(89);
   let elevation = rand(89);
-  let string = `An plane is flying ${height} feet above the ground. The angle of depression from the plane to the summit of a mountain is ${depression} degrees. The angle of elevation of the summit of the mountain from the ground is ${elevation} degrees. Find the height of the mountain.`;
+  let string = `An plane is flying ${height} feet above the ground. The angle of depression from the plane to the summit of a mountain is ${depression} degrees. The angle of elevation of the summit of the mountain a man on the ground directly below the plane is ${elevation} degrees. Find the height of the mountain.`;
+  let answerString = `Let the plane, the summit of the mountain, and the man be at points A,B and C respectively, and let the height of the mountain be h. We are given that AC=${height}. Let M be a point such that BMA = 90 degrees and let BM = d. tan ${elevation} = (${height} - h)/d. Similarly, tan ${depression} = h/d. Dividing these equations by each other, we obtain (${height} - h)/h = tan ${elevation} / tan ${depression}. Solving this equation, we obtain h = ${parseFloat((height)/(1 + (Math.tan((elevation/360)*2*Math.PI)/(Math.tan((depression/360)*2*Math.PI))))).toFixed(3)} `;
   console.log(string);
+  console.log(answerString);
   return string;
 }
 function running() {
@@ -140,7 +162,16 @@ function running() {
   let speed = rand(10);
   let angle = rand(45);
   let newAngle = rand(45);
+  angle = angle < newAngle ? angle : newAngle;
+  newAngle = angle < newAngle ? newAngle : angle;
   let string = `${firstName} is jogging at a constant pace of ${speed}m/s along a road past a lighthouse. Initially, the bearing of the lighthouse from his path is ${angle} degrees. After 10 minuites, the bearing becomes ${newAngle} degrees. What is the closest he will come to the lighthouse. `;
+  let distanceTravelled = speed * 10 * 60;
+  let thirdAngle = 180 - newAngle;
+  let fourthAngle = 180 - angle - thirdAngle;
+  let hypotenuse = (distanceTravelled*sin(angle)/sin(fourthAngle));
+  let closestDistance = hypotenuse*sin(newAngle);
+  console.log(closestDistance);
+  answerString = `Since we know that the jogger travelled at a speed of ${speed}m/s, we can conclude that the distance travelled in 10 minuites was ${speed} * 10 * 60 = ${distanceTravelled}. Let the initial position of the jogger be I, the final position of the jogger be F, and the position of the lighthouse be L. We know that angle IFL = 180 = ${newAngle} = ${thirdAngle} degrees. Thus, we know that angle ILF = ${fourthAngle}. Using the law of sines, we obtain that line FL = ${hypotenuse}m. When the distance between the jogger and the lighthouse is minimal, the bearing of the lighthouse must be 90 degrees. Thus, the minimal distance is ${closestDistance}.`
   console.log(string);
   return string;
 }
@@ -167,7 +198,13 @@ function lawOfCosines() {
   }
 
   let string = `Let ABC be a triangle. Let ${A}${B}=${length1} and ${B}${C} = ${length2}. Let angle ${A}${B}${C} = ${angle} degrees. Find all the remaining sides and angles in the triangle.`;
+  let thirdSide = parseFloat(Math.sqrt(length1*length1 + length2*length2 - 2*length1*length2*cos(angle))).toFixed(3);
+  let secondAngle = parseFloat(((Math.acos((+thirdSide*thirdSide + length1*length1 - length2*length2)/(2*length1*thirdSide)))/(2*Math.PI))*360).toFixed(3);
+  console.log((+thirdSide*thirdSide + length1*length1 - length2*length2)/(2*length1*thirdSide))
+  let answerString = `Using the law of cosines, we obtain that ${A}${C} = ${thirdSide}, angle ${B}${A}${C} = ${secondAngle} and ${A}${C}${B} = ${180 - angle - secondAngle}`;
+
   console.log(string);
+  console.log(answerString);
   return string;
 }
 function lawOfSines() {
