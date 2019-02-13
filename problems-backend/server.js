@@ -50,4 +50,6 @@ app.get('/problems', (req, res, next) => {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     let response = {problems: problems, solutions: solutions}
     res.send(response);
+    problems = [];
+    solutions = [];
 })
