@@ -21,7 +21,7 @@ function bell() {
     return [string, answerString];
 }
 
-bell();
+
 
 function sweets() {
     let number1;
@@ -43,7 +43,7 @@ function sweets() {
     return [string, answerString];
 }
 
-sweets();
+
 
 function posNeg() {
     let firstName;
@@ -70,7 +70,7 @@ function posNeg() {
     console.log(answerString);
     return [string, answerString];
 }
-posNeg();
+
 
 function comets() {
     let bellTime1;
@@ -91,7 +91,7 @@ function comets() {
     return [string, answerString];
 }
 
-comets();
+
 
 const arithmetic = [comets, posNeg, sweets, bell];
 module.exports = arithmetic;

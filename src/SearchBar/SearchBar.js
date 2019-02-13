@@ -64,6 +64,8 @@ class SearchBar extends React.Component {
 						<option value="">Please Select A Topic</option>
 						<option value="Trigonometry">Trigonometry</option>
 						<option value='Algebra'>Algebra</option>
+						<option value='Geometry'>Geometry</option>
+						<option value='Arithmetic'>Arithmetic</option>
 
 					</select>
 				</div>

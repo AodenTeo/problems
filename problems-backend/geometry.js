@@ -17,7 +17,7 @@ function shadow() {
     return [string, answerString];
 }
 
-shadow();
+
 
 function comp() {
     let number = form.rand(20) + 1;
@@ -30,7 +30,7 @@ function comp() {
     return [string, answerString];
 }
 
-comp();
+
 
 const geometry = [shadow, comp];
 module.exports = geometry;

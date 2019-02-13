@@ -15,7 +15,7 @@ function genQuadEq() {
     return [string, answerString];
     
 }
-genQuadEq();
+
 function genUnsolvableQuadEq() {
     let a;
     let b;
@@ -31,7 +31,7 @@ function genUnsolvableQuadEq() {
     console.log(answerString);
     return [string, answerString];
 }
-genUnsolvableQuadEq();
+
 function simEq() {
     let a1 = form.rand(10);
     let b1 = form.rand(10);
@@ -45,7 +45,7 @@ function simEq() {
     console.log(answerString);
     return [string, answerString];
 }
-simEq();
+
 function factQuad() {
     let r1 = form.rand(20);
     let r2 = form.rand(20);
@@ -59,7 +59,7 @@ function factQuad() {
     console.log(answerString);
     return [string, answerString];
 }
-factQuad();
+
 function aQuad() {
     let a = form.rand(10);
     let b = form.rand(10);
@@ -90,7 +90,7 @@ function animalLegs() {
     console.log(answerString);
     return [string, answerString];
 }
-animalLegs();
+
 function alienEyes() {
     const alienNames = ['Zogs', 'Nogs', 'Noolyles', 'Quaquaqs', 'Omerases', 'Omencils', 'Squitas', 'Vrooms', 'Zooms', 'Lolligers', 'Oompas', 'Loompas', 'Wonkas', 'Wonkies', 'Topuffs', 'Malhams', 'Jakors', 'Cogs', 'Neyners', 'Lettors', 'Nonums', 'Spaceklars', 'Uummoos'];
     const bodyParts = ['legs', 'arms', 'noses', 'feet', 'fingers', 'ears'];
@@ -124,7 +124,7 @@ function alienEyes() {
     return [string, answerString];
 }
 
-alienEyes();
+
 
 function bookQuestion() {
     let firstPage = form.rand(999);
@@ -138,7 +138,6 @@ function bookQuestion() {
     return [string, answerString];
 }
 
-bookQuestion();
 
 function numSum() {
     let firstNumber = form.rand(80);
@@ -158,7 +157,7 @@ function numSum() {
     return [string, answerString];
 }
 
-numSum();
+
 
 function age() {
     let sisterAgeGap = form.rand(7) + 1;
@@ -177,7 +176,6 @@ function age() {
     return [string, answerString];
 }
 
-age();
 
 function quadConsec() {
     let numOfConsec = Math.random() > 0.5 ? 2 : 3;
@@ -208,7 +206,7 @@ function quadConsec() {
     return [string, answerString];
 }
 
-quadConsec();
+
 
 function quadSim() {
     let x = form.rand(20) + 5;
@@ -222,7 +220,6 @@ function quadSim() {
     return [string, answerString];
 }
 
-quadSim();
 
 function fence() {
     let totalFence = form.rand(40) + 10;
@@ -233,7 +230,7 @@ function fence() {
     return [string, answerString];
 }
 
-fence();
+
 
 const algebra = [genQuadEq, genUnsolvableQuadEq, simEq, factQuad, animalLegs, alienEyes, bookQuestion, numSum, age, quadConsec, quadSim, fence];
 module.exports = algebra;
