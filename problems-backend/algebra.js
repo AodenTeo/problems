@@ -234,3 +234,6 @@ function fence() {
 }
 
 fence();
+
+const algebra = [genQuadEq, genUnsolvableQuadEq, simEq, factQuad, animalLegs, alienEyes, bookQuestion, numSum, age, quadConsec, quadSim, fence];
+module.exports = algebra;
