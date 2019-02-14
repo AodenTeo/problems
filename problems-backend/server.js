@@ -110,6 +110,8 @@ app.get('/problems', (req, res, next) => {
         //solutions[x] = 'Question ' + (x/4 + 1);
         solutions[x] = { text: 'Question ' + (x/4 + 1), style: 'header'};
     }
+    problems.unshift({ text: 'Problems', style: 'center'});
+    solutions.unshift({ text: 'Solutions', style: 'center'});
     let response = {problems: problems, solutions: solutions}
     res.send(response);
     problems = [];

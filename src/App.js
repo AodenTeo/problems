@@ -90,6 +90,11 @@ class App extends Component {
           header: {
             fontSize: 22,
             bold: true
+          },
+          center: {
+            fontSize: 30,
+            bold: true,
+            alignment: 'center'
           }
         }
       };
