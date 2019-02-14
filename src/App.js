@@ -71,7 +71,7 @@ class App extends Component {
     ))
   }
   componentWillMount() {
-    alert('Welcome to Free Math Problems. Generate a problem set by adding the topics you want and clicking generate! ');
+    alert('Welcome to Free Math Problems. Generate a problem set by adding the topics you want and clicking generate! If on your first try you get blank documents, simply click generate again. This means that the Heroku backend was asleep. It should work the second time.');
   }
   makeProblemSet() {
    
