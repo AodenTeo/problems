@@ -70,7 +70,12 @@ class App extends Component {
       { chosenTopics: prevState.chosenTopics.filter((_, i) => i !== index) }
     ))
   }
+  componentWillMount() {
+    alert('Welcome to Free Math Problems. Generate a problem set by adding the topics you want and clicking generate! ');
+  }
   makeProblemSet() {
+   
+
     console.log('This is working');
     for (let i = 0; i < this.state.chosenTopics.length; i++) {
       fetch('https://problems-backend.herokuapp.com/' + this.state.chosenTopics[i].term + '/' + this.state.chosenTopics[i].quantity, {
@@ -116,6 +121,7 @@ class App extends Component {
     }).catch(err => {
       console.log('Oh no!');
     })
+    
   }
 
 
