@@ -30,7 +30,82 @@ function comp() {
     return [string, answerString];
 }
 
+function simTri() {
+    let m;
+    let n;
+    do {
+        m = form.rand(20);
+        n = form.rand(20);
+    } while (m === n);
+    let x = m * m - n * n > 0 ? m * m - n * n : n * n - m * m;
+    let y = 2 * m * n;
+    let c = m * m + n * n;
+    let AD = parseFloat((x*y)/c).toFixed(3);
+    let BD = parseFloat((x*x)/c).toFixed(3);
+    let AM = parseFloat((AD*BD)/x).toFixed(3);
+    let string = `Let ABC be a right triangle with angle CAB = 90 degrees. Let AD be an altitude of triangle ABC and let DM be an altitude of triangle ADC. Given that BD = ${BD} and AM = ${AM}, find AB.`;
+    let answerString = `Note that triangle ABD is similar to triangle DAM. Thus, AB/BD = AD/AM which implies that AB/${BD} = AD/${AM}. Hence, we have AD = ${AM}*AB/${BD} = AD. Thus, BD^2 = (1 - (${AM}/${BD})^2)*AB^2 which implies that (1 - (${AM}/${BD})^2)*AB^2 = ${parseFloat(BD*BD).toFixed(3)}. Solving this equation, we get AB = ${x}. `;
+    console.log(string);
+    console.log(answerString);
+    return [string, answerString];
+}
+
+simTri();
+
+function ramp() {
+    let m;
+    let n;
+    do {
+        m = form.rand(20);
+        n = form.rand(20);
+    } while (m === n);
+    let a = m * m - n * n > 0 ? m * m - n * n : n * n - m * m;
+    let b = 2 * m * n;
+    let c = m * m + n * n;
+    let random = form.rand(10) + 1;
+    let a1 = a*random;
+    let b1 = b*random;
+    let c1 = c*random;
+    let speed = form.rand(10);
+    let time = parseFloat(a/speed).toFixed(3);
+    const activities = [{activity: 'cycling', surface: 'ramp'}, {activity: 'running', surface: 'incline'}, {activity: 'skateboarding', surface: 'ramp'}, {activity: 'skiing', surface: 'ski slope'}, {activity: 'driving', surface: 'ramp'}, {activity: 'roller blading', surface: 'ramp'}, {activity: 'snowboarding', surface: 'slope'}];
+    const names = ['Tom', 'Peter', 'Sue', 'Denise', 'Rodger', 'Anne', 'Lucy', 'Lily', 'David', 'Joanne', 'Elizabeth', 'James', 'Bob', 'Michael', 'Albert', 'Stephen', 'Steve', 'Bill', 'Catherine', 'Emma', 'Emily', 'Elaine', 'Bianka', 'Ethan', 'Eliot', 'Lauren', 'Sam', 'Leonard', 'Nathan', 'Joy', 'Gretchen', 'Lousia', 'Zoey', 'Noah', 'Oliver', 'Benjamin'];
+    let variation = activities[Math.floor(Math.random()*activities.length)];
+    let name = names[Math.floor(Math.random()*names.length)];
+    let string = `${name} is ${variation.activity} up a ${variation.surface} at a speed of ${speed}m/s. The ${variation.surface} is ${a1}m long horizontally. After ${time} seconds, ${name} has travelled ${a} meters horizontally. How tall is the ${variation.surface}?`;
+    let answerString = `The distance travelled in ${time} seconds is ${time}*${speed} = ${c}. Thus, the total length of the surface of the ${variation.surface} is (${a1}/${a})*${c} = ${c1}. Thus, using the pythagorean theorem, we get that the height of the slope is equal to sqrt(${c1}^2 - ${a1}^2) = ${b1}m.`;
+    console.log(string);
+    console.log(answerString);
+    return [string, answerString];
+}
+
+ramp();
+
+function race() {
+    const names = ['Tom', 'Peter', 'Sue', 'Denise', 'Rodger', 'Anne', 'Lucy', 'Lily', 'David', 'Joanne', 'Elizabeth', 'James', 'Bob', 'Michael', 'Albert', 'Stephen', 'Steve', 'Bill', 'Catherine', 'Emma', 'Emily', 'Elaine', 'Bianka', 'Ethan', 'Eliot', 'Lauren', 'Sam', 'Leonard', 'Nathan', 'Joy', 'Gretchen', 'Lousia', 'Zoey', 'Noah', 'Oliver', 'Benjamin'];
+    let firstName;
+    let secondName;
+    let thirdName;
+    do {
+      firstName = names[form.rand(names.length) - 1];
+      secondName = names[form.rand(names.length) - 1];
+      thirdName = names[form.rand(names.length) - 1];
+    } while (firstName === secondName || firstName === thirdName || secondName === thirdName);
+    let radius = form.rand(30);
+    let theta = form.rand(89);
+    let winnerAngle = theta/2;
+    let lead = parseFloat((theta/360)*2*Math.PI*radius).toFixed(3);
+    let speed = form.rand(10) + 5;
+    let string = `${firstName}, ${secondName}, and ${thirdName} are running the last lap of a race around a circular track of radius ${radius}m. They all run the last lap at a constant pace. ${firstName} and ${secondName} are running at ${speed}m/s, with ${firstName} being slightly ahead of ${secondName}. ${thirdName} is running the fastest. ${form.rand(10)} seconds before the end of the race, let the positions of ${firstName}, ${secondName} and ${thirdName} be A, B and C respectively. Angle ACB is ${winnerAngle} degrees. How much faster did ${firstName} finish the race than ${secondName} in seconds?`;
+    let answerString = `Since angle ACB = ${winnerAngle} degrees, the arc AB is ${theta} degrees. Hence ${firstName} is ${lead}m ahead of ${secondName}. Thus, ${firstName} will finish ${parseFloat(lead/speed).toFixed(3)} seconds faster.`;
+    console.log(string);
+    console.log(answerString);
+    return [string, answerString];
+}
+
+race();
 
 
-const geometry = [shadow, comp];
+
+const geometry = [shadow, comp, simTri, ramp, race];
 module.exports = geometry;
