@@ -20,6 +20,7 @@ class App extends Component {
     this.increaseTopics = this.increaseTopics.bind(this);
     this.decreaseTopics = this.decreaseTopics.bind(this);
     this.makeProblemSet = this.makeProblemSet.bind(this);
+    this.deleteTopic = this.deleteTopic.bind(this);
   }
   addProblems(term, quantity) {
     let newTopic = { term: term, quantity: quantity };
@@ -63,6 +64,11 @@ class App extends Component {
         { chosenTopics: prevState.chosenTopics.filter((_, i) => i !== index) }
       ))
     }
+  }
+  deleteTopic(index) {
+    this.setState((prevState) => (
+      { chosenTopics: prevState.chosenTopics.filter((_, i) => i !== index) }
+    ))
   }
   makeProblemSet() {
     console.log('This is working');
@@ -108,7 +114,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar handleClick={this.addProblems} />
-        <ResultList results={this.state.chosenTopics} addQuantity={this.increaseTopics} reduceQuantity={this.decreaseTopics} />
+        <ResultList results={this.state.chosenTopics} addQuantity={this.increaseTopics} reduceQuantity={this.decreaseTopics} delete={this.deleteTopic} />
         <a id='button' onClick={this.makeProblemSet}>GENERATE</a>
       </div>
     );

@@ -18,7 +18,7 @@ class ResultList extends React.Component {
                             <li>
                                 {
                                     this.props.results.map(result => {
-                                        return <SearchResult key={Math.random()} list={this.props.results} result={result.term} quantity={result.quantity} addQuantity={this.props.addQuantity} reduceQuantity={this.props.reduceQuantity} />
+                                        return <SearchResult key={Math.random()} list={this.props.results} result={result.term} quantity={result.quantity} addQuantity={this.props.addQuantity} reduceQuantity={this.props.reduceQuantity} delete={this.props.delete} />
                                     })
                                 }
                             </li>

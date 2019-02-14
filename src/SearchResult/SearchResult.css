@@ -4,10 +4,7 @@ p {
     opacity: 1;
     font-size: 20px;
     text-align: left;
-    padding: 0 0 0 15% ;
-
-
-    
+    padding: 0 0 0 15% ;    
 }
 #removeTag:hover {
     opacity: 0.8;
@@ -21,10 +18,16 @@ p {
     cursor: pointer;
 
 }
+#deleteTag:hover {
+    opacity: 0.8;
+    color: yellow;
+    cursor: pointer;
+
+}
 
 #singleElement.gridContainer {
     display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 * {
     overflow: auto;

@@ -96,7 +96,7 @@ function race() {
     let winnerAngle = theta/2;
     let lead = parseFloat((theta/360)*2*Math.PI*radius).toFixed(3);
     let speed = form.rand(10) + 5;
-    let string = `${firstName}, ${secondName}, and ${thirdName} are running the last lap of a race around a circular track of radius ${radius}m. They all run the last lap at a constant pace. ${firstName} and ${secondName} are running at ${speed}m/s, with ${firstName} being slightly ahead of ${secondName}. ${thirdName} is running the fastest. ${form.rand(10)} seconds before the end of the race, let the positions of ${firstName}, ${secondName} and ${thirdName} be A, B and C respectively. Angle ACB is ${winnerAngle} degrees. How much faster did ${firstName} finish the race than ${secondName} in seconds?`;
+    let string = `${firstName}, ${secondName}, and ${thirdName} are running the last lap of a race around a circular track of radius ${radius}m. They all run the last lap at a constant pace. ${firstName} and ${secondName} are running at ${speed}m/s, with ${firstName} being slightly ahead of ${secondName}. ${thirdName} is running the fastest. ${form.rand(10) + 1} seconds before ${thirdName} crosses the finish line, let the positions of ${firstName}, ${secondName} and ${thirdName} be A, B and C respectively. Angle ACB is ${winnerAngle} degrees. How much faster did ${firstName} finish the race than ${secondName} in seconds?`;
     let answerString = `Since angle ACB = ${winnerAngle} degrees, the arc AB is ${theta} degrees. Hence ${firstName} is ${lead}m ahead of ${secondName}. Thus, ${firstName} will finish ${parseFloat(lead/speed).toFixed(3)} seconds faster.`;
     console.log(string);
     console.log(answerString);
@@ -104,8 +104,6 @@ function race() {
 }
 
 race();
-
-
 
 const geometry = [shadow, comp, simTri, ramp, race];
 module.exports = geometry;
