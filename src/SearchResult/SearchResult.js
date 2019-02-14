@@ -29,7 +29,13 @@ class SearchResult extends React.Component {
 
     render() {
         console.log('This is running!')
-        return (<div id='singleElement' className='gridContainer'><div><p id='resultText'>{this.state.result}</p></div><div><p>{this.state.quantity}</p></div> <div><p><a id='addTag' onClick={this.increaseQuantity}>+</a>   <a id='removeTag' onClick={this.decreaseQuantity}>–</a></p></div><div><p><a id='deleteTag' onClick={this.delete}>Remove</a></p></div> </div>);
+        return (
+            <div id='singleElement' className='gridContainer'>
+                <div><p id='resultText'>{this.state.result}</p></div>
+                <div><p>{this.state.quantity}</p></div>
+                <div><p><a id='addTag' onClick={this.increaseQuantity}>+</a>   <a id='removeTag' onClick={this.decreaseQuantity}>–</a></p></div>
+                <div><p><a id='deleteTag' onClick={this.delete}>Remove</a></p></div>
+            </div>);
     }
 }
 export default SearchResult;
