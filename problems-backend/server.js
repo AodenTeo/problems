@@ -5,7 +5,7 @@ const geometry = require('./geometry.js');
 const arithmetic = require('./arithmetic.js');
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 let problems = [];
 let solutions = [];
 app.listen(port, () => {
@@ -21,7 +21,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Makes the server static
 app.use(express.static('public'));
-
+app.get('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.send('This is good');
+})
 app.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -29,13 +33,14 @@ app.all('/*', function (req, res, next) {
 });
 //Here we can define our routes
 
-app.post('/trigonometry/:number', (req, res, next) => {
+app.post('/Trigonometry/:number', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     for (let x = 0; x < req.params.number; x++ ) {
         index = Math.floor(Math.random()*trigonometry.length);
         let string = trigonometry[index]();
         let questionNumber = 'Question ';
+        console.log('This worked');
         problems.push({ text: questionNumber, style: 'header'});
         problems.push({text: ' '});
         problems.push(string[0]);
@@ -45,8 +50,9 @@ app.post('/trigonometry/:number', (req, res, next) => {
         solutions.push(string[1]);
         solutions.push('  ');
    }
+   res.send('This is the obligatory response');
 });
-app.post('/algebra/:number', (req, res, next) => {
+app.post('/Algebra/:number', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     for (let x = 0; x < req.params.number; x++ ) {
@@ -62,8 +68,9 @@ app.post('/algebra/:number', (req, res, next) => {
         solutions.push(string[1]);
         solutions.push('  ');
    }
+   res.send('This is the obligatory response');
 });
-app.post('/geometry/:number', (req, res, next) => {
+app.post('/Geometry/:number', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     for (let x = 0; x < req.params.number; x++ ) {
@@ -79,8 +86,9 @@ app.post('/geometry/:number', (req, res, next) => {
         solutions.push(string[1]);
         solutions.push('  ');
    }
+   res.send('This is the obligatory response');
 });
-app.post('/arithmetic/:number', (req, res, next) => {
+app.post('/Arithmetic/:number', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     for (let x = 0; x < req.params.number; x++ ) {
@@ -96,6 +104,7 @@ app.post('/arithmetic/:number', (req, res, next) => {
         solutions.push(string[1]);
         solutions.push('  ');
    }
+   res.send('This is the obligatory response');
 });
 
 

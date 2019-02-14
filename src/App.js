@@ -73,13 +73,13 @@ class App extends Component {
   makeProblemSet() {
     console.log('This is working');
     for (let i = 0; i < this.state.chosenTopics.length; i++) {
-      fetch('http://localhost:8080/' + this.state.chosenTopics[i].term + '/' + this.state.chosenTopics[i].quantity, {
+      fetch('https://problems-backend.herokuapp.com/' + this.state.chosenTopics[i].term + '/' + this.state.chosenTopics[i].quantity, {
         method: 'POST',
       }).catch(err => {
         console.log('Nooooo!');
       })
     }
-    fetch('http://localhost:8080/problems', {
+    fetch('https://problems-backend.herokuapp.com/problems', {
       method: 'GET'
     }).then(response => {
       return response.json();
