@@ -120,7 +120,6 @@ class App extends Component {
       };
       
       pdfMake.createPdf(questions).download('Questions');
-      pdfMake.createPdf(questions).open();
       let solutions = {
         content: JSONresponse.solutions, styles: {
           header: {
@@ -135,6 +134,7 @@ class App extends Component {
         }
       };
       pdfMake.createPdf(solutions).download('Solutions');
+      pdfMake.createPdf(questions).open();
     }).catch(err => {
       console.log('Oh no!');
     })
