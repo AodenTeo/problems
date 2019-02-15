@@ -23,12 +23,27 @@ class App extends Component {
     this.deleteTopic = this.deleteTopic.bind(this);
   }
   addProblems(term, quantity) {
+    console.log('Add Problems is being called.')
     let newTopic = { term: term, quantity: quantity };
-    let oldTopics = this.state.chosenTopics;
-    let newTopics = oldTopics.push(newTopic);
-    this.setState({ topics: newTopics });
     console.log(newTopic);
-    console.log(this.state.chosenTopics);
+    let oldTopics = this.state.chosenTopics;
+    console.log(oldTopics);
+    let emptyArray = [];
+    
+    for (let i = 0; i < oldTopics.length; i++) {
+      console.log(oldTopics[i].term);
+      console.log(newTopic.term);
+      if (oldTopics[i].term === newTopic.term) {
+        emptyArray.push('Duplicate!');
+      }
+    }
+    console.log(emptyArray);
+    if (emptyArray.length === 0) {
+      let newTopics = oldTopics.push(newTopic);
+      this.setState({ topics: newTopics });
+      console.log(newTopic);
+      console.log(this.state.chosenTopics);
+    } 
   }
   increaseTopics(index) {
     console.log(index);
