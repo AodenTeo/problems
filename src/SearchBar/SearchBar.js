@@ -29,30 +29,15 @@ class SearchBar extends React.Component {
 
 	}
 	handleChange(event) {
-		let query;
-		let safeString;
-		safeString = event.target.value.split(" ").map(word => {
-			return word.replace(/\W/g, '')
-		}).join("%20")
-		if (safeString === "" || event.target.value == undefined) {
-			query = '';
-		} else {
-			query = safeString
-		}
 
-		this.setState({ term: query })
+
+		this.setState({ term: event.target.value })
 	}
 	handleNumber(event) {
-		let number;
-		let safeString;
-		safeString = event.target.value.split(" ").map(word => {
-			return word.replace(/\W/g, '')
-		})
-		if (safeString === "" || event.target.value == undefined) {
+		let number = event.target.value
+		if (number === "" || event.target.value == undefined) {
 			number = '0'
-		} else {
-			number = safeString[0];
-		}
+		} 
 
 		this.setState({ quantity: number })
 	}

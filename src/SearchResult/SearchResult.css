@@ -4,7 +4,7 @@ p {
     opacity: 1;
     font-size: 20px;
     text-align: left;
-    padding: 0 0 0 15% ;    
+    padding: 0 0 3% 3% ;    
 }
 #removeTag:hover {
     opacity: 0.8;
@@ -16,7 +16,6 @@ p {
     opacity: 0.8;
     color: yellow;
     cursor: pointer;
-
 }
 #deleteTag:hover {
     opacity: 0.8;
