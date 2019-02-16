@@ -19,12 +19,12 @@ export class Tour extends React.Component {
       },
       {
         target: '.inputField',
-        content: 'In this field, you can select the number of questions from each topic that you want.',
+        content: 'In this field, you can set the number of questions that you would like from each topic.',
         placement: 'bottom-end'
       },
       {
         target: '#addTopic',
-        content: 'Click here to add the topic.',
+        content: 'Click here to add a topic.',
         placement: 'top'
       },
       {
