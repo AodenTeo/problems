@@ -53,7 +53,6 @@ class SearchBar extends React.Component {
 						<option value='Algebra'>Algebra</option>
 						<option value='Geometry'>Geometry</option>
 						<option value='Arithmetic'>Arithmetic</option>
-
 					</select>
 				</div>
 
