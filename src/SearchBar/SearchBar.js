@@ -57,7 +57,7 @@ class SearchBar extends React.Component {
 				</div>
 
 			</div>
-			<input placeholder='Quantity' type='number' min='1' onChange={this.handleNumber} onKeyDown={this.enterPressed} />
+			<input className = 'inputField' placeholder='Quantity' type='number' min='1' onChange={this.handleNumber} onKeyDown={this.enterPressed} />
 
 			
 

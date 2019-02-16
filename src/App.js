@@ -4,6 +4,7 @@ import SearchBar from './SearchBar/SearchBar.js';
 import ResultList from './ResultList/ResultList.js';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import Tour from './Tour/tour.js';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -86,9 +87,6 @@ class App extends Component {
       { chosenTopics: prevState.chosenTopics.filter((_, i) => i !== index) }
     ))
   }
-  componentWillMount() {
-    alert('Welcome to Free Math Problems. Generate a problem set by adding the topics you want and clicking generate!');
-  }
   makeProblemSet() {
    
 
@@ -144,9 +142,11 @@ class App extends Component {
 
 
 
+
   render() {
     return (
       <div className="App">
+        <Tour />
         <SearchBar handleClick={this.addProblems} />
         <ResultList results={this.state.chosenTopics} addQuantity={this.increaseTopics} reduceQuantity={this.decreaseTopics} delete={this.deleteTopic} />
         <a id='button' onClick={this.makeProblemSet}>GENERATE</a>
