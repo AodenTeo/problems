@@ -5,6 +5,7 @@
     width: 50%;
     display: inline-block;
     overflow: scroll;
+    text-overflow: ellipsis;
 }
 .resultText {
     opacity: 1.0;

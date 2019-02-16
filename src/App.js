@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       topics: ['Calculus', 'Trigonometry', 'Algebra'],
-      chosenTopics: []
+      chosenTopics: [],
+      loading: false
     };
     this.addProblems = this.addProblems.bind(this);
     this.increaseTopics = this.increaseTopics.bind(this);

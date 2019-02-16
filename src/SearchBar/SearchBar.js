@@ -57,11 +57,13 @@ class SearchBar extends React.Component {
 		this.setState({ quantity: number })
 	}
 	render() {
-		return (<div className="SearchBar">
+		return (
+		<div id='wrapper'>
+		<div className="SearchBar">
 			<div className="styled-select green rounded">
 				<div className='center'>
 					<select placeholder="Search For A Topic" onChange={this.handleChange} onKeyDown={this.enterPressed} >
-						<option value="">Please Select A Topic</option>
+						<option value="">Select Topic</option>
 						<option value="Trigonometry">Trigonometry</option>
 						<option value='Algebra'>Algebra</option>
 						<option value='Geometry'>Geometry</option>
@@ -72,7 +74,15 @@ class SearchBar extends React.Component {
 
 			</div>
 			<input placeholder='Quantity' type='number' min='1' onChange={this.handleNumber} onKeyDown={this.enterPressed} />
-			<a onClick={this.handleSearch} onKeyDown={this.enterPressed}>ADD TOPIC</a>
+
+			
+
+			
+		</div>
+	
+		<a id='addTopic'onClick={this.handleSearch} onKeyDown={this.enterPressed}>ADD TOPIC</a>
+
+		
 		</div>);
 	}
 }

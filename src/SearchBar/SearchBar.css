@@ -1,17 +1,26 @@
+#wrapper {
+  display: grid;
+  text-align: center;
+}
+#center {
+  text-align: center;
+}
+#container {
+  display: inline-block;
+  text-align: center;
+}
 .SearchBar {
     display: grid;
-    grid-template-columns: 30% 70%;
-    float: center;
+    grid-template-columns: 50% 50%;
 
     flex-direction: column;
     align-items: center;
     padding-top: 10.94rem;
-    margin-bottom: 3.33rem;
-    margin-left: 30%;
+    margin-bottom: 1.0rem;
   }
   
   .SearchBar input {
-    width: 287px;
+    width: 50%;
     padding: .77rem 0;
     border: 1px solid #fff;
     border-radius: 3px;
@@ -19,38 +28,42 @@
     color: #010c3f;
     text-align: center;
     font-size: 1rem;
+    position: relative;
+    left: 2%
   }
   
   .SearchBar input:focus {
     outline: none;
   }
   
-  .SearchBar a {
+  #addTopic {
     cursor: pointer;
-    width: 8.11rem;
-    padding: .77rem 0;
-    border-radius: 54px;
+    width: 6rem;
+    padding: .77rem;
+    border-radius: 54px; /*Maybe try square button?*/ 
     background-color: #010c3f;
     text-align: center;
     font-size: .833rem;
     transition: background-color .25s;
     color: white;
-    margin-left:75%;
+    margin: 0 auto;
+    margin-bottom: 3%;
   }
   
-  .SearchBar a:hover {
+  #addTopic:hover {
     background-color: rgba(108, 65, 233, .7);
   }
   select {
     opacity: 0.6;
-    width: 287px;
+    width: 100%;
     border: 1px solid #fff;
-    margin-left: 3rem;
+    margin-left: 10%;
     margin-top: 1.11rem;
     margin-bottom: 1.11rem;
     color: #010c3f;
     text-align: center;
     font-size: 1rem;
+    text-overflow: clip;
   }
  
   
@@ -63,7 +76,7 @@
 /* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
 /* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
 .styled-select {
-  width: 287px;
+  width: 50%;
     padding: 0 0;
     border: 1px solid #fff;
     border-radius: 3px;
@@ -71,6 +84,7 @@
     color: #010c3f;
     text-align: center;
     font-size: 1rem;
+    margin-left: 45%;
 
 }
 option {
@@ -78,10 +92,7 @@ option {
   font-size:1rem;
   float: center;
 }
-.center {
-  text-align: center;
-  align-items: center;
-}
+
 
 
 
