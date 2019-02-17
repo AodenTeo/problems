@@ -33,8 +33,8 @@ export class Tour extends React.Component {
         placement: 'top'
       },
       {
-        target: '#button',
-        content: 'Once you\'re done, click here to generate a problem set! Two pdfs will be generated, one containing questions and the other containing the problems.',
+        target: '.button',
+        content: 'Once you\'re done, click here to generate a problem set! Two PDFs will be generated, one containing questions and the other containing the problems. You will be redirected to the problems page.',
         placement: 'top'
       }
     ]

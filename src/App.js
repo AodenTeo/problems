@@ -145,6 +145,7 @@ class App extends Component {
     return (
       
       <div className="App">
+        <Tour />
 
         {this.state.loading && (<Loading />)}
         <SearchBar handleClick={this.addProblems} />
