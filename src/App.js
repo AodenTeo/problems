@@ -5,6 +5,7 @@ import ResultList from './ResultList/ResultList.js';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import Tour from './Tour/tour.js';
+import Loading from './LoadingScreen/loading.js';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -88,8 +89,7 @@ class App extends Component {
     ))
   }
   makeProblemSet() {
-   
-
+    this.setState({loading: true});
     console.log('This is working');
     for (let i = 0; i < this.state.chosenTopics.length; i++) {
       fetch('https://problems-backend.herokuapp.com/' + this.state.chosenTopics[i].term + '/' + this.state.chosenTopics[i].quantity, {
@@ -134,22 +134,22 @@ class App extends Component {
       };
       pdfMake.createPdf(solutions).download('Solutions');
       pdfMake.createPdf(questions).open();
+      this.setState({loading: false});
     }).catch(err => {
       console.log('Oh no!');
+      this.setState({loading: false});
     })
     
   }
-
-
-
-
   render() {
     return (
+      
       <div className="App">
-        <Tour />
+
+        {this.state.loading && (<Loading />)}
         <SearchBar handleClick={this.addProblems} />
         <ResultList results={this.state.chosenTopics} addQuantity={this.increaseTopics} reduceQuantity={this.decreaseTopics} delete={this.deleteTopic} />
-        <a id='button' onClick={this.makeProblemSet}>GENERATE</a>
+        <a className='button' onClick={this.makeProblemSet}>GENERATE</a>
       </div>
     );
   }
